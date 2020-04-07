@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         mSwitch = findViewById(R.id.switch1);
         selSRGB = findViewById(R.id.checkBox);
         selDCIP3 = findViewById(R.id.checkBox2);
-        selADAPT = findViewById(R.id.checkBox3);
-        selOPMODE = findViewById(R.id.checkBox4);
+        selOPMODE = findViewById(R.id.checkBox3);
+        selADAPT = findViewById(R.id.checkBox4);
         setWithBoot = findViewById(R.id.checkBox5);
         rtext = findViewById(R.id.recyclerView);
         fab= findViewById(R.id.floatingActionButton);
