@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <service
             android:name="com.shxyke.DCtuner.DCTileService"
-            android:label="@string/my_default_tile_label"
+            android:label="@string/dc_mode_title"
             android:icon="@drawable/ic_dc"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
@@ -23,7 +23,7 @@
 
 
         <activity android:name="com.shxyke.DCtuner.MainActivity" />
-        <activity android:name="com.shxyke.DCtuner.start_activity">
+        <activity android:name="com.shxyke.DCtuner.PreStartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
