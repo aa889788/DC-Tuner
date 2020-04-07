@@ -1,14 +1,26 @@
 <resources>
     <string name="app_name">DC Tuner</string>
-    <string name="Switch">Switch</string>
-    <string name="text_on">DC On</string>
-    <string name="text_off">DC Off</string>
-    <string name="start_textview">TextView</string>
-    <string name="FirstRun">这是你的第一次运行\n</string>
-    <string name="GiveRoot">请授予Root权限以继续操作\n</string>
-    <string name="button">GetRoot</string>
-    <string name="GetStatus">NextStep</string>
-    <string name="my_default_tile_label">DC mode</string>
-    <string name="DcModeStatus">DcModeStatus</string>
-    <string name="ElvssMin">ElvssMin</string>
+    <string name="dc_switch">DC调光</string>
+    <string name="text_dc_on">DC Dimming ON!</string>
+    <string name="text_dc_off">DC Dimming Off!</string>
+    <string name="start_text_view">TextView</string>
+    <string name="first_run">这是第一次运行\n</string>
+    <string name="grant_root">请授予Root权限以继续\n</string>
+    <string name="request_root_button">获取root</string>
+    <string name="next_step_button">下一步</string>
+    <string name="dc_mode_title">DC Dimming</string>
+    <string name="dc_status">DC Dimming Status</string>
+    <string name="elvss_min">Minimal DC Backlight </string>
+    <string name="select_color">选择颜色模式</string>
+    <string name="dci_p3_text">开启DCI P3 </string>
+    <string name="dci_p3_status">DCIP3 Mode Status</string>
+    <string name="srgb_text">开启SRGB</string>
+    <string name="srgb_status">SRGB Mode Status</string>
+    <string name="adaption_text">开启自适应模式 </string>
+    <string name="adaption_status">Adaption Mode Status</string>
+    <string name="oneplus_text">开启Oneplus模式 </string>
+    <string name="oneplus_status">Oneplus Mode Status</string>
+    <string name="others_text">其它</string>
+    <string name="auto_run_text">开机自启DC和颜色模式</string>
+    <string name="auto_run_status">Set On Boot</string>
 </resources>

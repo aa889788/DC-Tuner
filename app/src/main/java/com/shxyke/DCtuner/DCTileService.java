@@ -36,8 +36,8 @@ public class DCTileService extends TileService {
         int state = getQsTile().getState();
         if (state == Tile.STATE_INACTIVE) {
             // 更改成非活跃状态     (还有一个参数：STATE_UNAVAILABLE 非可点击状态)
-            basic_com.set_status(true);
-            editor.putBoolean(DcModeStatus,basic_com.get_status());editor.apply();
+            Utilties.set_dc_status(true);
+            editor.putBoolean(DcModeStatus, Utilties.get_dc_status());editor.apply();
             if(sharedPreferences.getBoolean(DcModeStatus, false)){
                 getQsTile().setState(Tile.STATE_ACTIVE);
             }else{
@@ -45,8 +45,8 @@ public class DCTileService extends TileService {
             }
         } else {
             //更改成活跃状态
-            basic_com.set_status(false);
-            editor.putBoolean(DcModeStatus,basic_com.get_status());editor.apply();
+            Utilties.set_dc_status(false);
+            editor.putBoolean(DcModeStatus, Utilties.get_dc_status());editor.apply();
             if(sharedPreferences.getBoolean(DcModeStatus, false)){
                 getQsTile().setState(Tile.STATE_ACTIVE);
             }else{
