@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                         selOPMODE.setChecked(sharedPreferences.getBoolean(getString(R.string.oneplus_status), false));
                         //mViewShow2.setText(sharedPreferences.getBoolean(getString(R.string.dci_p3_status), false)?"DCI P3 On":"DCI P3 Off");
                     } else {
-                        if(Utilties.get_dc_status()) {
+                        if(Utilties.get_dci_p3_status()) {
                             Utilties.set_dci_p3_status(false);
                             Utilties.update_status(getApplicationContext());
                             selDCIP3.setChecked(sharedPreferences.getBoolean(getString(R.string.dci_p3_status), false));
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                         //mViewShow2.setText(sharedPreferences.getBoolean(getString(R.string.dci_p3_status), false)?"DCI P3 On":"DCI P3 Off");
                     } else {
                         if(Utilties.get_adaption_status()) {
-                            Utilties.set_srgb_status(false);
+                            Utilties.set_adaption_status(false);
                             Utilties.update_status(getApplicationContext());
                             selADAPT.setChecked(sharedPreferences.getBoolean(getString(R.string.adaption_status), false));
                             //selSRGB.setText(sharedPreferences.getBoolean(getString(R.string.srgb_status), false)?"SRGB On":"SRGB Off");
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                         //mViewShow2.setText(sharedPreferences.getBoolean(getString(R.string.dci_p3_status), false)?"DCI P3 On":"DCI P3 Off");
                     } else {
                         if(Utilties.get_opmode_status()) {
-                            Utilties.set_srgb_status(false);
+                            Utilties.set_opmode_status(false);
                             Utilties.update_status(getApplicationContext());
                             selOPMODE.setChecked(sharedPreferences.getBoolean(getString(R.string.oneplus_status), false));
                             //selSRGB.setText(sharedPreferences.getBoolean(getString(R.string.srgb_status), false)?"SRGB On":"SRGB Off");
