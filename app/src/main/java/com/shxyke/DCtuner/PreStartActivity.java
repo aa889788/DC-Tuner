@@ -43,9 +43,14 @@ public class PreStartActivity extends AppCompatActivity {
                 text_show += getString(R.string.grant_root);
             }
             else {
-                Utilties.update_status(this);
-                startActivity(intent);
-                finish();
+                if(!Utilties.isDCKernel()){
+                    text_show += "你并不是DC内核\n";
+                }
+                else{
+                    Utilties.update_status(this);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }
         grant_root = findViewById(R.id.button);
@@ -65,6 +70,11 @@ public class PreStartActivity extends AppCompatActivity {
             if(isDCKernel){
                 editor.putBoolean(isFirstRun, false);
                 editor.apply();
+                if("OnePlus5".equals(Build.DEVICE)) {
+                        Utilties.set_elvss_num(66);
+                }else {
+                        Utilties.set_elvss_num(302);
+                }
                 next_step.setEnabled(true);
             }
             else{

@@ -21,6 +21,7 @@
     <string name="oneplus_text">开启Oneplus模式 </string>
     <string name="oneplus_status">Oneplus Mode Status</string>
     <string name="others_text">其它</string>
+    <string name="current_text">当前</string>
     <string name="auto_run_text">开机自启DC和颜色模式</string>
     <string name="auto_run_status">Set On Boot</string>
 </resources>
