@@ -261,10 +261,12 @@ public class Utilties {
         sharedPreferences = context.getSharedPreferences("share", context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         editor.putBoolean(context.getString(R.string.dc_status),get_dc_status());
-        editor.putBoolean(context.getString(R.string.dci_p3_status),get_dci_p3_status());
-        editor.putBoolean(context.getString(R.string.srgb_status),get_srgb_status());
-        editor.putBoolean(context.getString(R.string.adaption_status),get_adaption_status());
-        editor.putBoolean(context.getString(R.string.oneplus_status),get_opmode_status());
+        if(isColorModKernel()) {
+            editor.putBoolean(context.getString(R.string.dci_p3_status), get_dci_p3_status());
+            editor.putBoolean(context.getString(R.string.srgb_status), get_srgb_status());
+            editor.putBoolean(context.getString(R.string.adaption_status), get_adaption_status());
+            editor.putBoolean(context.getString(R.string.oneplus_status), get_opmode_status());
+        }
         editor.putInt(context.getString(R.string.elvss_min),get_elvss_num());
         editor.apply();
     }

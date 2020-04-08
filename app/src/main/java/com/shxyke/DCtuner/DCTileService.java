@@ -10,7 +10,6 @@ import android.util.Log;
 public class DCTileService extends TileService {
     final String LOG_TAG = "DCTileService";
 
-    private String DcModeStatus = "DcModeStatus";
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
@@ -37,21 +36,16 @@ public class DCTileService extends TileService {
         if (state == Tile.STATE_INACTIVE) {
             // 更改成非活跃状态     (还有一个参数：STATE_UNAVAILABLE 非可点击状态)
             Utilties.set_dc_status(true);
-            editor.putBoolean(DcModeStatus, Utilties.get_dc_status());editor.apply();
-            if(sharedPreferences.getBoolean(DcModeStatus, false)){
-                getQsTile().setState(Tile.STATE_ACTIVE);
-            }else{
-                getQsTile().setState(Tile.STATE_INACTIVE);
-            }
         } else {
             //更改成活跃状态
             Utilties.set_dc_status(false);
-            editor.putBoolean(DcModeStatus, Utilties.get_dc_status());editor.apply();
-            if(sharedPreferences.getBoolean(DcModeStatus, false)){
-                getQsTile().setState(Tile.STATE_ACTIVE);
-            }else{
-                getQsTile().setState(Tile.STATE_INACTIVE);
-            }
+        }
+
+        editor.putBoolean(getString(R.string.dc_status), Utilties.get_dc_status());editor.apply();
+        if(sharedPreferences.getBoolean(getString(R.string.dc_status), false)){
+            getQsTile().setState(Tile.STATE_ACTIVE);
+        }else{
+            getQsTile().setState(Tile.STATE_INACTIVE);
         }
 
         //可以点击设置图标，设置方式如下：
@@ -71,13 +65,11 @@ public class DCTileService extends TileService {
         
         sharedPreferences = getSharedPreferences("share", MODE_PRIVATE);
         editor = sharedPreferences.edit();
-        if(sharedPreferences.getBoolean(DcModeStatus, false)){
+        if(sharedPreferences.getBoolean(getString(R.string.dc_status), false)){
             getQsTile().setState(Tile.STATE_ACTIVE);
-            getQsTile().updateTile();
             Log.d(LOG_TAG, "true");
         }else{
             getQsTile().setState(Tile.STATE_INACTIVE);
-            getQsTile().updateTile();
             Log.d(LOG_TAG, "false");
         }
         getQsTile().updateTile();
