@@ -70,6 +70,11 @@ public class PreStartActivity extends AppCompatActivity {
             if(isDCKernel){
                 editor.putBoolean(isFirstRun, false);
                 editor.apply();
+                if("OnePlus5".equals(Build.DEVICE)) {
+                        Utilties.set_elvss_num(66);
+                }else {
+                        Utilties.set_elvss_num(302);
+                }
                 next_step.setEnabled(true);
             }
             else{

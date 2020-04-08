@@ -192,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
                     toShow += "颜色模式: 未设置\n";
                 }
                 toShow += setBoot?"开机自启: ON\n":"开机自启: OFF\n";
+                toShow += "当前最小DC亮度: " + sharedPreferences.getInt(getString(R.string.elvss_min),66) + "\n";
 
                 text.setText(toShow);
 
