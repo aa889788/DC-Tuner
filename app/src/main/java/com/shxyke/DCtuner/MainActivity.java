@@ -50,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         setWithBoot = findViewById(R.id.checkBox5);
         text = findViewById(R.id.textView2);
         fab= findViewById(R.id.floatingActionButton);
+        if(Utilties.get_elvss_num()!=sharedPreferences.getInt(getString(R.string.elvss_min),66)){
+            Utilties.set_elvss_num(sharedPreferences.getInt(getString(R.string.elvss_min),66));
+        }
         Utilties.update_status(getApplicationContext());
 
         isColorModKernel = Utilties.isColorModKernel();

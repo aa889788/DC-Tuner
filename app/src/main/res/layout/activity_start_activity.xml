@@ -8,15 +8,16 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="293dp"
-        android:layout_height="518dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="291dp"
+        android:layout_height="473dp"
         android:background="?attr/colorButtonNormal"
         android:fadeScrollbars="false"
         android:scrollbarStyle="insideInset"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.162">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,24 +44,28 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="48dp"
         android:onClick="NextStep"
         android:text="@string/next_step_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView"
+        app:layout_constraintVertical_bias="0.008" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="40dp"
         android:onClick="GetRoot"
         android:text="@string/request_root_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView"
+        app:layout_constraintVertical_bias="0.068" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
