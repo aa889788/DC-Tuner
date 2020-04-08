@@ -9,6 +9,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Objects;
 import java.util.regex.*;
 
 public class Utilties {
@@ -143,21 +144,17 @@ public class Utilties {
         Pattern pattern = Pattern.compile("^mode = ([0-1]).*|^([0-1])$");
         Matcher matcher = pattern.matcher(ret);
         if(matcher.find()){
-            return Integer.parseInt(matcher.group(1)) == 1;
+            if(matcher.group(1) != null) {
+                return Integer.parseInt(matcher.group(1)) == 1;
+            }
+            else{
+                return Integer.parseInt(matcher.group(2)) == 1;
+            }
         }
         return false;
     }
 
     public static void set_srgb_status(boolean enabled){
-        if(get_dci_p3_status()){
-            set_dci_p3_status(false);
-        }
-        if(get_adaption_status()){
-            set_adaption_status(false);
-        }
-        if(get_opmode_status()){
-            set_opmode_status(false);
-        }
         if(enabled){
             execRootCmdSilent("echo 1 > /sys/class/graphics/fb0/srgb");
         }else{
@@ -170,21 +167,17 @@ public class Utilties {
         Pattern pattern = Pattern.compile("^mode = ([0-1]).*|^([0-1])$");
         Matcher matcher = pattern.matcher(ret);
         if(matcher.find()){
-            return Integer.parseInt(matcher.group(1)) == 1;
+            if(matcher.group(1) != null) {
+                return Integer.parseInt(matcher.group(1)) == 1;
+            }
+            else{
+                return Integer.parseInt(matcher.group(2)) == 1;
+            }
         }
         return false;
     }
 
     public static void set_dci_p3_status(boolean enabled){
-        if(get_srgb_status()){
-            set_srgb_status(false);
-        }
-        if(get_adaption_status()){
-            set_adaption_status(false);
-        }
-        if(get_opmode_status()){
-            set_opmode_status(false);
-        }
         if(enabled){
             execRootCmdSilent("echo 1 > /sys/class/graphics/fb0/dci_p3");
         }else{
@@ -197,21 +190,26 @@ public class Utilties {
         Pattern pattern = Pattern.compile("^mode = ([0-1]).*|^([0-1])$");
         Matcher matcher = pattern.matcher(ret);
         if(matcher.find()){
-            return Integer.parseInt(matcher.group(1)) == 1;
+            if(matcher.group(1) != null) {
+                return Integer.parseInt(matcher.group(1)) == 1;
+            }
+            else{
+                return Integer.parseInt(matcher.group(2)) == 1;
+            }
         }
         return false;
     }
 
     public static void set_adaption_status(boolean enabled){
-        if(get_srgb_status()){
-            set_srgb_status(false);
-        }
-        if(get_dci_p3_status()){
-            set_dci_p3_status(false);
-        }
-        if(get_opmode_status()){
-            set_opmode_status(false);
-        }
+//        if(get_srgb_status()){
+//            set_srgb_status(false);
+//        }
+//        if(get_dci_p3_status()){
+//            set_dci_p3_status(false);
+//        }
+//        if(get_opmode_status()){
+//            set_opmode_status(false);
+//        }
         if(enabled){
             execRootCmdSilent("echo 1 > /sys/class/graphics/fb0/adaption_mode_");
         }else{
@@ -224,21 +222,26 @@ public class Utilties {
         Pattern pattern = Pattern.compile("^mode = ([0-1]).*|^([0-1])$");
         Matcher matcher = pattern.matcher(ret);
         if(matcher.find()){
-            return Integer.parseInt(matcher.group(1)) == 1;
+            if(matcher.group(1) != null) {
+                return Integer.parseInt(matcher.group(1)) == 1;
+            }
+            else{
+                return Integer.parseInt(matcher.group(2)) == 1;
+            }
         }
         return false;
     }
 
     public static void set_opmode_status(boolean enabled){
-        if(get_srgb_status()){
-            set_srgb_status(false);
-        }
-        if(get_adaption_status()){
-            set_srgb_status(false);
-        }
-        if(get_dci_p3_status()){
-            set_dci_p3_status(false);
-        }
+//        if(get_srgb_status()){
+//            set_srgb_status(false);
+//        }
+//        if(get_adaption_status()){
+//            set_srgb_status(false);
+//        }
+//        if(get_dci_p3_status()){
+//            set_dci_p3_status(false);
+//        }
         if(enabled){
             execRootCmdSilent("echo 1 > /sys/class/graphics/fb0/oneplus_mode");
         }else{
@@ -264,8 +267,8 @@ public class Utilties {
         if(isColorModKernel()) {
             editor.putBoolean(context.getString(R.string.dci_p3_status), get_dci_p3_status());
             editor.putBoolean(context.getString(R.string.srgb_status), get_srgb_status());
-            editor.putBoolean(context.getString(R.string.adaption_status), get_adaption_status());
-            editor.putBoolean(context.getString(R.string.oneplus_status), get_opmode_status());
+            //editor.putBoolean(context.getString(R.string.adaption_status), get_adaption_status());
+            //editor.putBoolean(context.getString(R.string.oneplus_status), get_opmode_status());
         }
         editor.putInt(context.getString(R.string.elvss_min),get_elvss_num());
         editor.apply();

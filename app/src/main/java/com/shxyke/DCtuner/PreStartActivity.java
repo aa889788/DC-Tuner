@@ -43,9 +43,14 @@ public class PreStartActivity extends AppCompatActivity {
                 text_show += getString(R.string.grant_root);
             }
             else {
-                Utilties.update_status(this);
-                startActivity(intent);
-                finish();
+                if(!Utilties.isDCKernel()){
+                    text_show += "你并不是DC内核\n";
+                }
+                else{
+                    Utilties.update_status(this);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }
         grant_root = findViewById(R.id.button);
