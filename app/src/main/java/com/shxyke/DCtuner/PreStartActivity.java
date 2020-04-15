@@ -47,7 +47,7 @@ public class PreStartActivity extends AppCompatActivity {
                     text_show += "你并不是DC内核\n";
                 }
                 else{
-                    Utilties.update_status(this);
+                    //Utilties.update_status(this);
                     startActivity(intent);
                     finish();
                 }
@@ -76,6 +76,7 @@ public class PreStartActivity extends AppCompatActivity {
                         Utilties.set_elvss_num(302);
                 }
                 next_step.setEnabled(true);
+                Utilties.update_status(getApplicationContext());
             }
             else{
                 text_show += "但你并不是DC内核\n";
