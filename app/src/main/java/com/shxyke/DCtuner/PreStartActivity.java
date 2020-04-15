@@ -76,6 +76,7 @@ public class PreStartActivity extends AppCompatActivity {
                         Utilties.set_elvss_num(302);
                 }
                 next_step.setEnabled(true);
+                Utilties.update_status(getApplicationContext());
             }
             else{
                 text_show += "但你并不是DC内核\n";

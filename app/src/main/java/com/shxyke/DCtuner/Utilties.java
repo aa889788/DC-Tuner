@@ -34,8 +34,8 @@ public class Utilties {
     }
 
     public static boolean isDCKernel(){
-        String ret = execRootCmd("ls /proc/fliker_free/fliker_free");
-        Pattern pattern = Pattern.compile("^/proc/fliker_free/fliker_free$");
+        String ret = execRootCmd("ls /proc/flicker_free/flicker_free");
+        Pattern pattern = Pattern.compile("^/proc/flicker_free/flicker_free$");
         Matcher matcher = pattern.matcher(ret);
         if(matcher.find()){
             return true;
@@ -128,14 +128,14 @@ public class Utilties {
     }
 
     public static boolean get_dc_status(){
-        return Integer.parseInt(execRootCmd("cat /proc/fliker_free/fliker_free")) == 1;
+        return Integer.parseInt(execRootCmd("cat /proc/flicker_free/flicker_free")) == 1;
     }
 
     public static void set_dc_status(boolean enabled){
         if(enabled){
-            execRootCmdSilent("echo 1 > /proc/fliker_free/fliker_free");
+            execRootCmdSilent("echo 1 > /proc/flicker_free/flicker_free");
         }else{
-            execRootCmdSilent("echo 0 > /proc/fliker_free/fliker_free");
+            execRootCmdSilent("echo 0 > /proc/flicker_free/flicker_free");
         }
     }
 
@@ -251,11 +251,11 @@ public class Utilties {
 
 
     public static int get_elvss_num(){
-        return Integer.valueOf(execRootCmd("cat /proc/fliker_free/min_brightness"));
+        return Integer.valueOf(execRootCmd("cat /proc/flicker_free/min_brightness"));
     }
 
     public static void set_elvss_num(int num){
-        execRootCmdSilent("echo " + num + " > /proc/fliker_free/min_brightness");
+        execRootCmdSilent("echo " + num + " > /proc/flicker_free/min_brightness");
     }
 
     public static void update_status(Context context){
