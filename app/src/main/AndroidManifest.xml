@@ -2,9 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.shxyke.DCtuner">
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,9 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
-            android:name="com.shxyke.DCtuner.DCTileService"
+            android:name="com.shxyke.DCtuner.helper.DCTileService"
             android:label="@string/dc_mode_title"
-            android:icon="@drawable/ic_dc"
+            android:icon="@drawable/ic_dc_logo"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
@@ -24,17 +25,20 @@
         </service>
 
         <receiver
-            android:name=".AutoStarter"
+            android:name=".helper.AutoStarter"
             android:enabled="true"
             android:exported="true">
             <intent-filter android:priority="1000">
-                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
 
-
-        <activity android:name="com.shxyke.DCtuner.MainActivity" />
-        <activity android:name="com.shxyke.DCtuner.PreStartActivity">
+        <activity
+            android:name="com.shxyke.DCtuner.activity.MainActivity"
+            android:theme="@style/DcAppTheme"/>
+        <activity
+            android:name="com.shxyke.DCtuner.activity.PreStartActivity"
+            android:theme="@style/ActivityDialogStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

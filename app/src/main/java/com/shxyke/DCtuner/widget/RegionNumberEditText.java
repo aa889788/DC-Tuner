@@ -1,4 +1,4 @@
-package com.shxyke.DCtuner;
+package com.shxyke.DCtuner.widget;
 
 import android.content.Context;
 import android.text.Editable;
@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class RegionNumberEditText extends androidx.appcompat.widget.AppCompatEditText {
+
     private Context context;
     private int max;
     private int min;
@@ -47,25 +48,21 @@ public class RegionNumberEditText extends androidx.appcompat.widget.AppCompatEdi
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (start >= 0) {//从一输入就开始判断，
+                if (start >= 0) {
                     if (min != -1 && max != -1) {
                         try {
                             int num = Integer.parseInt(s.toString());
-                            //判断当前edittext中的数字(可能一开始Edittext中有数字)是否大于max
                             if (num > max) {
-                                s = String.valueOf(max);//如果大于max，则内容为max
+                                s = String.valueOf(max);
                                 setText(s);
-                                Toast.makeText(context.getApplicationContext(), "输入范围为"+min+"~"+max, Toast.LENGTH_LONG).show();
-
+                                Toast.makeText(context.getApplicationContext(), "输入范围为" + min + "~" + max, Toast.LENGTH_LONG).show();
                             } else if (num < min) {
-                                s = String.valueOf(min);//如果小于min,则内容为min
+                                s = String.valueOf(min);
                                 setText(s);
                             }
                         } catch (NumberFormatException e) {
-                            Log.e("ontextchanged", "==" + e.toString());
+                            e.printStackTrace();
                         }
-                        //edittext中的数字在max和min之间，则不做处理，正常显示即可。
-                        return;
                     }
                 }
             }
@@ -76,4 +73,5 @@ public class RegionNumberEditText extends androidx.appcompat.widget.AppCompatEdi
             }
         });
     }
+
 }

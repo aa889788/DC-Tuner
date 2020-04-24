@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="switch_def" type="id">@+id/switch1</item>
-    <item name="status_show" type="id">@+id/textView</item>
-</resources>
